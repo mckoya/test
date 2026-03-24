@@ -25,7 +25,13 @@ Y = 0
 psi = 0
 dt = 0.05
 
-#these are the derivatives used in the euler new = old + derivative * dt
-Xdot = vehicle["u"] * np.cos(vehicle["psi"] + vehicle["delta"])
-Ydot = vehicle["v"] * np.sin(vehicle["psi"] + vehicle["delta"])
-psidot = (vehicle["u"]/vehicle["lr"]) * np.sin(beta)
+for i in range(50):
+    #these are the derivatives used in the euler new = old + derivative * dt
+    Xdot = vehicle["u"] * np.cos(vehicle["psi"] + beta)
+    Ydot = vehicle["v"] * np.sin(vehicle["psi"] + beta)
+    psidot = (vehicle["u"]/vehicle["lr"]) * np.sin(beta)
+    X = X + Xdot * dt
+    Y = Y + Ydot * dt
+    psi = psi + psidot * dt
+
+print(X,Y)
