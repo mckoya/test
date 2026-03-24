@@ -9,8 +9,8 @@ import numpy as np
 vehicle = {
     "u" : 30,
     "v" : 10,
-    "delta" : np.radians(30),
-    "psi" : np.radians(15),
+    "delta" : np.radians(30), #steering angle
+    "psi" : np.radians(15), #heading relative to whatever you decide the x axis to be
     "l" : 3,
     "lr" : 1.75,
     "m" : 1500
@@ -33,5 +33,4 @@ for i in range(50):
     X = X + Xdot * dt
     Y = Y + Ydot * dt
     psi = psi + psidot * dt
-
 print(X,Y)
