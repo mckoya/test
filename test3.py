@@ -16,7 +16,7 @@ def lat_tire_f(c_alpha, alpha):
 # #why is git being annoying
 
 def fiala(c_alpha, alpha, mu, fz): #figaro figaro fiiiigarooooo
-    if abs(alpha) < np.arctan(np.radians((3*mu * fz)/c_alpha)):
+    if abs(alpha) < np.arctan((3*mu * fz)/c_alpha):
         fyf = -c_alpha * np.tan(np.radians(alpha)) + (c_alpha ** 2)/(3 * mu * fz) * abs(np.tan(np.radians(alpha))) * np.tan(np.radians(alpha))
     else:
         fyf = -mu * fz * np.sign(alpha)
