@@ -4,6 +4,7 @@
 #start at 0,0 and update x,y over small time steps.
 
 import numpy as np
+import matplotlib.pyplot as plt
 
 #vehicle parameters
 vehicle = {
@@ -25,12 +26,28 @@ Y = 0
 psi = 0
 dt = 0.05
 
+Xlist = []
+Ylist = []
+
 for i in range(50):
     #these are the derivatives used in the euler new = old + derivative * dt
     Xdot = vehicle["u"] * np.cos(vehicle["psi"] + beta)
     Ydot = vehicle["v"] * np.sin(vehicle["psi"] + beta)
-    psidot = (vehicle["u"]/vehicle["lr"]) * np.sin(beta)
+    #psidot = (vehicle["u"]/vehicle["lr"]) * np.sin(beta)
     X = X + Xdot * dt
     Y = Y + Ydot * dt
-    psi = psi + psidot * dt
-print(X,Y)
+    #psi = psi + psidot * dt
+    Xlist.append(X)
+    Ylist.append(Y)
+
+
+#print(X,Y)
+#print(Xlist)
+#print(Ylist)
+
+#plot, turning x into lists
+plt.plot(Xlist, Ylist, "r*")
+plt.xlabel("x position")
+plt.ylabel("y position")
+plt.title("the")
+plt.show()
